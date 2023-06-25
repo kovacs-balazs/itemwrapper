@@ -29,7 +29,6 @@ public class ConfigItem {
         byte data = Byte.parseByte(String.valueOf(map.get("data")));
         boolean hide_unbreakble = (boolean) map.get("hide_unbreakable");
         boolean unbreakble = (boolean) map.get("unbreakable");
-        Color color = null;
         List<String> lore                      = new ArrayList<>();
         List<ItemFlag> itemFlags               = new ArrayList<>();
         List<Pattern> patterns                 = new ArrayList<>();
@@ -75,7 +74,7 @@ public class ConfigItem {
             }
         }
 
-
+        Color color = null;
         if(map.containsKey("leather_armor_color")) {
             String armorColor = String.valueOf(map.get("leather_armor_color"));
             if(armorColor.startsWith("#"))
