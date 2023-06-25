@@ -3,6 +3,7 @@ package me.koba1.configwrapper.utils;
 import me.koba1.configwrapper.Main;
 import org.bukkit.Material;
 import org.bukkit.configuration.ConfigurationSection;
+import org.bukkit.configuration.file.FileConfiguration;
 
 import java.io.ObjectInputFilter;
 import java.util.ArrayList;
@@ -10,15 +11,10 @@ import java.util.HashMap;
 
 public class ConfigReader {
 
-    private static Main plugin;
-    public ConfigReader(Main plugin) {
-        this.plugin = plugin;
-    }
-
-    public HashMap<String, Object> getMap(String configName, ConfigurationSection configSection) {
+    public HashMap<String, Object> getMap(String configName, FileConfiguration config, ConfigurationSection configSection) {
         HashMap<String, Object> hashMap = baseValues();
         for (String key : configSection.getKeys(false)) {
-            hashMap.put(key, plugin.getConfig().get(configName + "." + key));
+            hashMap.put(key, config.get(configName + "." + key));
         }
         return hashMap;
     }

@@ -15,11 +15,6 @@ import java.util.List;
 
 public class ConfigItem {
 
-    private static Main plugin;
-    public ConfigItem(Main plugin) {
-        this.plugin = plugin;
-    }
-
     public static ItemStack getItem(HashMap<String, Object> map) {
         Material material = Material.getMaterial(map.get("material") + "");
         String base64 = (String) map.get("base64");

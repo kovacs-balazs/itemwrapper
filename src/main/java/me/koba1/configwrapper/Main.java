@@ -23,8 +23,8 @@ public final class Main extends JavaPlugin {
     @Override
     public void onEnable() {
         // Plugin startup logic
-        configReader = new ConfigReader(this);
-        configItem = new ConfigItem(this);
+        configReader = new ConfigReader();
+        configItem = new ConfigItem();
 
         saveResource("config.yml", false);
     }
@@ -38,7 +38,7 @@ public final class Main extends JavaPlugin {
     public boolean onCommand(@NotNull CommandSender sender, @NotNull Command command, @NotNull String label, @NotNull String[] args) {
         if(command.getName().equalsIgnoreCase("giveitem")) {
             Player p = (Player) sender;
-            p.getInventory().addItem(configItem.getItem(configReader.getMap(args[0], getConfig().getConfigurationSection(args[0]))));
+            p.getInventory().addItem(configItem.getItem(configReader.getMap(args[0],  getConfig(), getConfig().getConfigurationSection(args[0]))));
         }
         return false;
     }
