@@ -1,0 +1,7 @@
+name: ItemWrapper
+version: '${project.version}'
+main: me.koba1.configwrapper.Main
+api-version: 1.13
+
+commands:
+  giveitem:
